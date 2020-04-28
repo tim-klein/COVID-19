@@ -114,6 +114,11 @@ Canada_cases, Canada_deaths = country_data('Canada', Canada_population)
 Germany_population = 82.79*10**6
 Germany_cases, Germany_deaths = country_data('Germany', Germany_population)
 
+Spain_population = 46.66*10**6
+Spain_cases, Spain_deaths = country_data('Spain', Germany_population)
+
+Sweden_population = 10.23*10**6
+Sweden_cases, Sweden_deaths = country_data('Sweden', Sweden_population)
 
 #-------------------------------- PLOT GRAPH ---------------------------------------------------
 fig, ax = plt.subplots()
@@ -125,6 +130,8 @@ ax.plot(Dates, China_cases, label="China", color='r', alpha=.8)
 ax.plot(Dates, UK_cases,label="UK", alpha=.8, c='slategray')
 ax.plot(Dates, Korea_cases,label="South Korea", alpha=.8, c='green')
 ax.plot(Dates, Germany_cases,label="Germany", alpha=.8, c='pink')
+ax.plot(Dates, Spain_cases,label="Spain", alpha=.8, c='k')
+ax.plot(Dates, Sweden_cases,label="Sweden", alpha=.8, c='sienna')
 ax.grid(True, color='silver', linestyle=':')
 ax.grid(True, which='minor', linestyle=':', linewidth=0.5, color='lightgray')
 ax.set_xlabel('Date', fontsize='small')
@@ -133,7 +140,7 @@ ax.set_ylabel('Confirmed Cases (% Population)', fontsize='small')
 fig.autofmt_xdate()
 plt.xticks(np.arange(min(Dates), max(Dates), 7))
 plt.legend(fontsize='small')
-plt.title('Confirmed Cases COVID-19')
+plt.title('Confirmed Cases COVID-19 (Normalized)')
 plt.savefig(os.path.join(os.getcwd(),('Covid19' + '.png')), dpi=300, edgecolor='k', bbox_inches='tight')
 plt.show()    
 
